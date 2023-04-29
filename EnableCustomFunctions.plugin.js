@@ -1,8 +1,11 @@
 /**
  * @name EnableCustomFunctions
  * @author Stef#6705
+ * @authorId 694986201739952229
  * @description Enables functions such as findByProps
  * @version 0.2.0
+ * @website https://github.com/Stef-00012/BetterDiscord-Plugin/tree/main#enablecustomfunctionspluginjs
+ * @source https://github.com/Stef-00012/BetterDiscord-Plugin/blob/main/EnableCustomFunctions.plugin.js
  */
 
 module.exports = meta => ({
