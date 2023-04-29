@@ -155,5 +155,5 @@ addDM('643945264868098049') //this adds Discord system account to your dms
 #### Source: [Discord server](https://discord.gg/discord-603970300668805120) - [Channel Post](https://discord.com/channels/603970300668805120/1099791239710265455)
 #### Example:
 ```js
-checkPomelo'Stef_DP')
+checkPomelo('Stef_DP')
 ```

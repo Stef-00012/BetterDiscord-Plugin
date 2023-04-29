@@ -267,7 +267,7 @@ module.exports = meta => ({
         /* START checkPomelo
            SOURCE: https://discord.gg/discord-603970300668805120 - https://discord.com/channels/603970300668805120/1099791239710265455
         */
-        window.checkpomelo = async function(username) {
+        window.checkPomelo = async function(username) {
             await (webpackChunkdiscord_app.push([
                 [""],
                 {},
