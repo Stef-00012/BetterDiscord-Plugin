@@ -313,7 +313,7 @@ module.exports = meta => ({
                 };
             }]), m).find(m => m?.exports?.Z?.getGuildCount).exports.Z.getGuild(guildId).features = new Set(features);
 
-            console.log(`%c[Featured]%c Selected features have been added to the server with ID %c${guildId}%c!`, 'color: #50C878', '', 'color: #FFD34F');
+            console.log(`%c[Featured]%c Selected features have been added to the server with ID %c${guildId}!`, 'color: #50C878', '', 'color: #FFD34F');
         };
     },
     stop() { }
