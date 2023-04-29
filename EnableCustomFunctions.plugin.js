@@ -315,6 +315,18 @@ module.exports = meta => ({
 
             console.log(`%c[Featured]%c Selected features have been added to the server with ID %c${guildId}!`, 'color: #50C878', '', 'color: #FFD34F');
         };
+
+        /**
+         * @method searchActionHandlers
+         * @author ✨Tolgchu✨#1452
+         * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1101909086456512682
+         */
+        window.searchActionHandlers = function (query) {
+            webpackChunkdiscord_app.push([[0], {}, (e) => {
+                module = Object.values(e.c).find(x => x?.exports?.default?.getUsers).exports.default;
+            }]);
+            return Object.keys(Object.values(module._dispatcher._actionHandlers)[0]).filter(key => key.toLowerCase().includes(query));
+        };
     },
     stop() { }
 });
