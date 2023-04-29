@@ -59,8 +59,8 @@ module.exports = meta => ({
          * @author ✨Tolgchu✨#1452
          * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1099726086209814638
          */
-        window.getFunction = function (f) {
-            return webpackChunkdiscord_app.push([[Symbol()], {}, e => Object.values(e.c)]).find(m => m?.exports?.Z?.[f]).exports.Z[f];
+        window.getFunction = function (f, position = 0) {
+            return webpackChunkdiscord_app.push([[Symbol()], {}, e => Object.values(e.c)]).filter(m => m?.exports?.Z?.[f])[position]?.exports?.Z?.[f];
         };
 
         /**
