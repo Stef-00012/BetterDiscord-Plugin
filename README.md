@@ -6,6 +6,7 @@
 ```js
 findByProps('getAPIBaseURL')
 ```
+![findByProps](https://user-images.githubusercontent.com/81536172/235297115-dc50cd0d-5276-45b9-b0a2-8dc842ba377e.png)
 
 
 - ### `getActionHandler(store, actionHandler)`
@@ -14,6 +15,7 @@ findByProps('getAPIBaseURL')
 ```js
 getActionHandler('ChannelStore', 'CHANNEL_CREATE');
 ```
+![getActionHandler](https://user-images.githubusercontent.com/81536172/235297144-9c08d2a8-cafd-4578-bc65-2de5535397db.png)
 
 
 - ### `getFunction(functionName)`
@@ -22,6 +24,7 @@ getActionHandler('ChannelStore', 'CHANNEL_CREATE');
 ```js
 getFunction('getChannel')
 ```
+![getFunction](https://user-images.githubusercontent.com/81536172/235297195-de02fc9a-8719-4d03-897c-1c5684e3c2a6.png)
 
 
 - ### `getStore(store)`
@@ -30,6 +33,7 @@ getFunction('getChannel')
 ```js
 getStore('ChannelStore')
 ```
+![getStore](https://user-images.githubusercontent.com/81536172/235297226-9cc39aab-9f54-4e51-a3b6-ccffdb917952.png)
 
 
 - ### `searchFunction(query)`
@@ -38,6 +42,7 @@ getStore('ChannelStore')
 ```js
 searchFunction('user')
 ```
+![searchFunction](https://user-images.githubusercontent.com/81536172/235297257-8e89b893-396c-4ad3-94b9-fab8a2bbe2b0.png)
 
 
 - ### `searchStore(query)`
@@ -46,6 +51,7 @@ searchFunction('user')
 ```js
 searchStore('channel')
 ```
+![searchStore](https://user-images.githubusercontent.com/81536172/235297299-f3394805-e977-4a49-b1ce-b178b5c5e429.png)
 
 
 - ### `searchExperiment(experiment)`
@@ -54,6 +60,7 @@ searchStore('channel')
 ```js
 searchExperiment('2021-12_soundboard')
 ```
+![searchExperiment](https://user-images.githubusercontent.com/81536172/235297357-97ca84b6-b3d2-45b9-b504-d9adf30a58ac.png)
 
 
 - ### `listServerFeatures()`
@@ -62,6 +69,7 @@ searchExperiment('2021-12_soundboard')
 ```js
 listServerFeatures()
 ```
+![listServerFeatures](https://user-images.githubusercontent.com/81536172/235297414-2e7bd40d-1449-4364-bc10-5a31fcaebe97.png)
 
 
 - ### `setEmoji(serverId, channelName, emoji)`
@@ -70,6 +78,7 @@ listServerFeatures()
 ```js
 setEmoji('1089540433010491392', 'support', '🆘')
 ```
+![setEmoji](https://user-images.githubusercontent.com/81536172/235297510-82fc2ecc-0c2d-4771-a6e9-f50d77864b35.png)
 
 
 - ### `getAllFunctions()`
@@ -78,6 +87,7 @@ setEmoji('1089540433010491392', 'support', '🆘')
 ```js
 getAllFunctions()
 ```
+![getAllFunctions](https://user-images.githubusercontent.com/81536172/235297553-f4dcea7b-c792-48bd-8f1a-14d8215303d3.png)
 
 
 - ### `addAllFeatures(serverId)`
@@ -86,6 +96,7 @@ getAllFunctions()
 ```js
 addAllFeatures('1089540433010491392')
 ```
+![addAllFeatures](https://user-images.githubusercontent.com/81536172/235297665-d2936988-7f70-47e8-900f-0dea8d7fb2d1.png)
 
 
 - ### `enableExperiments()`
@@ -94,6 +105,7 @@ addAllFeatures('1089540433010491392')
 ```js
 enableExperiments()
 ```
+![enableExperiments](https://user-images.githubusercontent.com/81536172/235297789-113f1c0e-dc1f-474f-9d18-98af67459124.png)
 
 
 - ### `listExperiments()`
@@ -102,6 +114,7 @@ enableExperiments()
 ```js
 listExperiments()
 ```
+![listExperiments](https://user-images.githubusercontent.com/81536172/235297808-f3d7c957-bafc-4d3d-9f30-84e7b376ae73.png)
 
 
 - ### `convertToMedia(channelId)`
@@ -110,6 +123,7 @@ listExperiments()
 ```js
 convertToMedia('1093451591400558613')
 ```
+![convertToMedia](https://user-images.githubusercontent.com/81536172/235297895-0638d9a9-1703-4fcf-992e-32c739bfd081.png)
 
 
 - ### `testNotification(data)` (`data` is optional)
@@ -124,6 +138,7 @@ testNotification({
   volume: 1 //volume of the notification
 })
 ```
+![testNotification](https://user-images.githubusercontent.com/81536172/235298784-988237d7-f3d5-4302-bc8d-542f98ae0f15.png)
 
 
 - ### `addTopics(channelId, topics)`
@@ -141,6 +156,7 @@ addTopics('1089808002359504946', [
   }
 ])
 ```
+![addTopics](https://user-images.githubusercontent.com/81536172/235298818-53371193-3f58-48eb-96ac-b58f3e663625.png)
 
 
 - ### `addDM(userId)`
@@ -149,6 +165,7 @@ addTopics('1089808002359504946', [
 ```js
 addDM('643945264868098049') //this adds Discord system account to your dms
 ```
+![addDM](https://user-images.githubusercontent.com/81536172/235298869-40eace7e-bd20-4115-8aaa-eba1ba812f60.png)
 
 
 - ### `checkPomelo(username)`
@@ -157,3 +174,4 @@ addDM('643945264868098049') //this adds Discord system account to your dms
 ```js
 checkPomelo('Stef_DP')
 ```
+![checkPomelo](https://user-images.githubusercontent.com/81536172/235298937-f0432755-4777-4a39-b373-a9d82317497b.png)
