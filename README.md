@@ -36,22 +36,22 @@ getStore('ChannelStore')
 ![getStore](https://user-images.githubusercontent.com/81536172/235297226-9cc39aab-9f54-4e51-a3b6-ccffdb917952.png)
 
 
-- ### `searchFunction(query)`
+- ### `searchFunctions(query)`
 #### Source: [Discord server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1099726086209814638)
 #### Example:
 ```js
-searchFunction('user')
+searchFunctions('user')
 ```
-![searchFunction](https://user-images.githubusercontent.com/81536172/235297257-8e89b893-396c-4ad3-94b9-fab8a2bbe2b0.png)
+![searchFunctions](https://user-images.githubusercontent.com/81536172/235309148-f91fddb1-7512-4617-9fdc-f7f879eb297b.png)
 
 
-- ### `searchStore(query)`
+- ### `searchStores(query)`
 #### Source: [Discord server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1099726632069115924)
 #### Example:
 ```js
-searchStore('channel')
+searchStores('channel')
 ```
-![searchStore](https://user-images.githubusercontent.com/81536172/235297299-f3394805-e977-4a49-b1ce-b178b5c5e429.png)
+![searchStores](https://user-images.githubusercontent.com/81536172/235309184-39abe493-6ac9-4abd-b1ac-62e0f60b3847.png)
 
 
 - ### `searchExperiment(experiment)`
@@ -72,15 +72,6 @@ listServerFeatures()
 ![listServerFeatures](https://user-images.githubusercontent.com/81536172/235297414-2e7bd40d-1449-4364-bc10-5a31fcaebe97.png)
 
 
-- ### `setEmoji(serverId, channelName, emoji)`
-#### Source: [Discord server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1090280784126025752)
-#### Example:
-```js
-setEmoji('1089540433010491392', 'support', '🆘')
-```
-![setEmoji](https://user-images.githubusercontent.com/81536172/235297510-82fc2ecc-0c2d-4771-a6e9-f50d77864b35.png)
-
-
 - ### `getAllFunctions()`
 #### Source: [Discord server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1099720606880104519)
 #### Example:
@@ -97,6 +88,15 @@ getAllFunctions()
 addAllFeatures('1089540433010491392')
 ```
 ![addAllFeatures](https://user-images.githubusercontent.com/81536172/235297665-d2936988-7f70-47e8-900f-0dea8d7fb2d1.png)
+
+
+- ### `addFeatures(serverId, features)`
+#### Source: [Discord Server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1097935744523313162)
+#### Example:
+```js
+addFeatures('1089540433010491392', ['INTERNAL_EMPLOYEE_ONLY'])
+```
+![addFeatures](https://user-images.githubusercontent.com/81536172/235309318-27a504f4-faa4-42cd-8123-6769bbf6e469.png)
 
 
 - ### `enableExperiments()`
@@ -175,3 +175,12 @@ addDM('643945264868098049') //this adds Discord system account to your dms
 checkPomelo('Stef_DP')
 ```
 ![checkPomelo](https://user-images.githubusercontent.com/81536172/235298937-f0432755-4777-4a39-b373-a9d82317497b.png)
+
+
+- ### `searchActionHandlers(query)`
+#### Source: [Discord Server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1101909086456512682)
+#### Example:
+```js
+searchActionHandlers('channel')
+```
+![searchActionHandlers](https://user-images.githubusercontent.com/81536172/235314678-a1af4c90-035d-4015-97fe-2cf4dab16f80.png)
