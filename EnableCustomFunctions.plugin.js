@@ -21,7 +21,7 @@ module.exports = meta => ({
 
             webpackChunkdiscord_app.pop();
 
-            for (let m of _mods) {
+            for (let m of mods) {
                 try {
                     if (!m.exports || m.exports === window) continue;
                     if (props.every((x) => m.exports?.[x])) return m.exports;
