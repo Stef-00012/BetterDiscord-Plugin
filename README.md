@@ -2,6 +2,7 @@
 ## Avaible functions
 - ### `findByProps(...props)`
 #### Source: [Discord server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1090280191416352800)
+#### Author: [✨Tolgchu✨#1452](https://discord.com/users/329671025312923648) (`329671025312923648`)
 #### Example:
 ```js
 findByProps('getAPIBaseURL')
@@ -11,6 +12,7 @@ findByProps('getAPIBaseURL')
 
 - ### `getActionHandler(store, actionHandler)`
 #### Source: [Discord server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1099723941314048020)
+#### Author: [✨Tolgchu✨#1452](https://discord.com/users/329671025312923648) (`329671025312923648`)
 #### Example:
 ```js
 getActionHandler('ChannelStore', 'CHANNEL_CREATE');
@@ -20,6 +22,7 @@ getActionHandler('ChannelStore', 'CHANNEL_CREATE');
 
 - ### `getFunction(functionName)`
 #### Source: [Discord server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1099724648389808220)
+#### Author: [✨Tolgchu✨#1452](https://discord.com/users/329671025312923648) (`329671025312923648`)
 #### Example:
 ```js
 getFunction('getChannel')
@@ -29,6 +32,7 @@ getFunction('getChannel')
 
 - ### `getStore(store)`
 #### Source: [Discord server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1099725409492422656)
+#### Author: [✨Tolgchu✨#1452](https://discord.com/users/329671025312923648) (`329671025312923648`)
 #### Example
 ```js
 getStore('ChannelStore')
@@ -38,6 +42,7 @@ getStore('ChannelStore')
 
 - ### `searchFunctions(query)`
 #### Source: [Discord server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1099726086209814638)
+#### Author: [✨Tolgchu✨#1452](https://discord.com/users/329671025312923648) (`329671025312923648`)
 #### Example:
 ```js
 searchFunctions('user')
@@ -47,6 +52,8 @@ searchFunctions('user')
 
 - ### `searchStores(query)`
 #### Source: [Discord server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1099726632069115924)
+#### Author: [✨Tolgchu✨#1452](https://discord.com/users/329671025312923648) (`329671025312923648`)
+#### Contributors: [syndicated#6591](https://discord.com/users/112511479806246912) (`112511479806246912`)
 #### Example:
 ```js
 searchStores('channel')
@@ -56,6 +63,7 @@ searchStores('channel')
 
 - ### `searchExperiment(experiment)`
 #### Source: [Discord server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1097941394825412789)
+#### Author: [Davri#0015](https://discord.com/users/457579346282938368) (`457579346282938368`)
 #### Example:
 ```js
 searchExperiment('2021-12_soundboard')
@@ -65,6 +73,7 @@ searchExperiment('2021-12_soundboard')
 
 - ### `listServerFeatures()`
 #### Source: [Discord server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1097942131542331433)
+#### Author: [HumanCat222#0001](https://discord.com/users/676018450115854347) (`676018450115854347`)
 #### Example:
 ```js
 listServerFeatures()
@@ -74,6 +83,7 @@ listServerFeatures()
 
 - ### `getAllFunctions()`
 #### Source: [Discord server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1099720606880104519)
+#### Author: [✨Tolgchu✨#1452](https://discord.com/users/329671025312923648) (`329671025312923648`)
 #### Example:
 ```js
 getAllFunctions()
@@ -83,6 +93,7 @@ getAllFunctions()
 
 - ### `addAllFeatures(serverId)`
 #### Source: [Discord server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1097935744523313162)
+#### Author: [proxy#1000](https://discord.com/users/711325368333893722) (`711325368333893722`)
 #### Example:
 ```js
 addAllFeatures('1089540433010491392')
@@ -92,6 +103,7 @@ addAllFeatures('1089540433010491392')
 
 - ### `addFeatures(serverId, features)`
 #### Source: [Discord Server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1097935744523313162)
+#### Author: [proxy#1000](https://discord.com/users/711325368333893722) (`711325368333893722`)
 #### Example:
 ```js
 addFeatures('1089540433010491392', ['INTERNAL_EMPLOYEE_ONLY'])
@@ -101,6 +113,7 @@ addFeatures('1089540433010491392', ['INTERNAL_EMPLOYEE_ONLY'])
 
 - ### `enableExperiments()`
 #### Source: [Discord server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1090279880878460950)
+#### Author: [✨Tolgchu✨#1452](https://discord.com/users/329671025312923648) (`329671025312923648`)
 #### Example:
 ```js
 enableExperiments()
@@ -110,6 +123,7 @@ enableExperiments()
 
 - ### `listExperiments()`
 #### Source: [Discord server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1097932371946389614)
+#### Author: [proxy#1000](https://discord.com/users/711325368333893722) (`711325368333893722`)
 #### Example:
 ```js
 listExperiments()
@@ -119,6 +133,7 @@ listExperiments()
 
 - ### `convertToMedia(channelId)`
 #### Source: [Discord server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1098270676588167258)
+#### Author: [✨Tolgchu✨#1452](https://discord.com/users/329671025312923648) (`329671025312923648`)
 #### Example:
 ```js
 convertToMedia('1093451591400558613')
@@ -128,6 +143,7 @@ convertToMedia('1093451591400558613')
 
 - ### `testNotification(data)` (`data` is optional)
 #### Source: [Discord server](https://discord.gg/discord-603970300668805120) - [Channel Post](https://discord.com/channels/603970300668805120/1093424070462292029)
+#### Author: [Chilli#1234](https://discord.com/users/1060289353059946607) (`1060289353059946607`)
 #### Example:
 ```js
 testNotification({
@@ -143,6 +159,7 @@ testNotification({
 
 - ### `addTopics(channelId, topics)`
 #### Source: [Discord server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1100482530521649252)
+#### Author: [✨Tolgchu✨#1452](https://discord.com/users/329671025312923648) (`329671025312923648`)
 #### Example:
 ```js
 addTopics('1089808002359504946', [
@@ -161,6 +178,7 @@ addTopics('1089808002359504946', [
 
 - ### `addDM(userId)`
 #### Source: [Discord server](https://discord.gg/discord-603970300668805120) - [Channel Post](https://discord.com/channels/603970300668805120/1101570562368745492)
+#### Author: [RedNix#0816](https://discord.com/users/701339955087278091) (`701339955087278091`)
 #### Example:
 ```js
 addDM('643945264868098049') //this adds Discord system account to your dms
@@ -170,6 +188,7 @@ addDM('643945264868098049') //this adds Discord system account to your dms
 
 - ### `checkPomelo(username)`
 #### Source: [Discord server](https://discord.gg/discord-603970300668805120) - [Channel Post](https://discord.com/channels/603970300668805120/1099791239710265455)
+#### Author: [RedNix#0816](https://discord.com/users/701339955087278091) (`701339955087278091`)
 #### Example:
 ```js
 checkPomelo('Stef_DP')
@@ -179,6 +198,7 @@ checkPomelo('Stef_DP')
 
 - ### `searchActionHandlers(query)`
 #### Source: [Discord Server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1101909086456512682)
+#### Author: [✨Tolgchu✨#1452](https://discord.com/users/329671025312923648) (`329671025312923648`)
 #### Example:
 ```js
 searchActionHandlers('channel')
