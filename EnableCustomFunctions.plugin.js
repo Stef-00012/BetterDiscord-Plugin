@@ -51,7 +51,12 @@ module.exports = meta => ({
             };
 
             if (found) return found.actionHandler[actionHandler];
-            else return console.error(`${actionHandler} action handler could not found!`);
+            else {
+                BdApi.UI.showToast(`${actionHandler} action handler could not found!`, {
+                    type: "error"
+                })
+                return console.error(`${actionHandler} action handler could not found!`);
+            }
         };
 
         /**
@@ -94,6 +99,9 @@ module.exports = meta => ({
             try {
                 findByProps;
             } catch (error) {
+                BdApi.UI.showToast('Use findByProps snippet before: https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800', {
+                    type: "warn"
+                })
                 return console.error('Use findByProps snippet before: https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800');
             };
 
@@ -112,16 +120,44 @@ module.exports = meta => ({
         };
 
         /**
-         * @method listServerFeatures
+         * @method listAllServerFeatures
          * @author HumanCat222#0001
          * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1097942131542331433
          */
-        window.listServerFeatures = async function () {
+        window.listAllServerFeatures = async function () {
+            let BDOutput =  []
             let guilds = await (webpackChunkdiscord_app.push([[''], {}, e => { m = []; for (let c in e.c) m.push(e.c[c]) }]), m).find(m => m?.exports?.Z?.getGuildCount).exports.Z.getGuilds()
             Object.values(guilds).forEach(guild => {
                 let features = (guild.features)
+                BDOutput.push(`# ${guild.name}:`)
+                BDOutput.push(Array.from(features).join(', '))
+                BDOutput.push('\u200b')
+                BDOutput.push('\u200b')
                 console.log(`${guild.name} has the following features: ${Array.from(features).join(', ')}`)
             })
+
+            BdApi.UI.alert('There are the features for each of your servers', BDOutput)
+        }
+        
+        /**
+         * @method listServerFeatures
+         * @author HumanCat222#0001
+         * @contributors Stef#6705
+         * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1097942131542331433
+         */
+        window.listServerFeatures = async function (guildName) {
+            let guilds = await (webpackChunkdiscord_app.push([[''], {}, e => { m = []; for (let c in e.c) m.push(e.c[c]) }]), m).find(m => m?.exports?.Z?.getGuildCount).exports.Z.getGuilds()
+            const exists = Object.values(guilds).find(guild => guild.name.toLowerCase() == guildName.toLowerCase())
+
+            if (exists) {
+                let features = (exists.features)
+                BdApi.UI.alert(`These are all the features of the "${exists.name}" server`, Array.from(features).join(', '))
+                console.log(`${exists.name} has the following features: ${Array.from(features).join(', ')}`)
+            } else {
+                BdApi.UI.showToast(`No server with the name "${guildName}" was found`, {
+                    type: 'error'
+                })
+            }
         }
 
         /**
@@ -147,7 +183,10 @@ module.exports = meta => ({
                 };
             }]), m).find(m => m?.exports?.Z?.getGuildCount).exports.Z.getGuild(guildId).features = new Set(["ROLE_SUBSCRIPTIONS_AVAILABLE_FOR_PURCHASE", "WELCOME_SCREEN_ENABLED", "NEWS", "COMMUNITY", "MEMBER_VERIFICATION_GATE_ENABLED", "PRIVATE_THREADS", "PREVIEW_ENABLED", "SEVEN_DAY_THREAD_ARCHIVE", "THREADS_ENABLED", "THREADS_ENABLED_TESTING", "THREE_DAY_THREAD_ARCHIVE", "VANITY_URL", "PARTNERED", "MONETIZATION_ENABLED", "COMMERCE", "ANIMATED_BANNER", "BANNER", "ROLE_ICONS", "ANIMATED_ICON", "MEMBER_PROFILES", "VIP_REGIONS", "ENABLED_DISCOVERABLE_BEFORE", "MORE_EMOJI", "VERIFIED", "FEATURABLE", "HAS_DIRECTORY_ENTRY", "INVITE_SPLASH", "DISCOVERABLE", "NEW_THREAD_PERMISSIONS", "CHANNEL_BANNER", "TEXT_IN_VOICE_ENABLED", "ROLE_SUBSCRIPTIONS_ENABLED_FOR_PURCHASE", "ROLE_SUBSCRIPTIONS_ENABLED", "PREMIUM_TIER_3_OVERRIDE", "MORE_STICKERS", "RELAY_ENABLED", "INTERNAL_EMPLOYEE_ONLY", "FORCE_RELAY", "TICKETING_ENABLED", "EXPOSED_TO_ACTIVITIES_WTP_EXPERIMENT", "LINKED_TO_HUB", "AUTO_MODERATION", "BOOSTING_TIERS_EXPERIMENT_SMALL_GUILD", "BOOSTING_TIERS_EXPERIMENT_MEDIUM_GUILD", "HAD_EARLY_ACTIVITIES_ACCESS", "TICKETED_EVENTS_ENABLED", "BOT_DEVELOPER_EARLY_ACCESS", "GUILD_HOME_TEST"]);
 
-            return `All features has added to server with ${guildId} id!`;
+            BdApi.UI.showToast(`All features has added to server with ${guildId} id!`, {
+                type: "success"
+            })
+            console.log(`All features has added to server with ${guildId} id!`);
         };
 
         /**
@@ -168,14 +207,21 @@ module.exports = meta => ({
             try {
                 findByProps;
             } catch (error) {
-                return console.error('Use findByProps snippet before!');
+                BdApi.UI.showToast('Use findByProps snippet before!', {
+                    type: "warn"
+                })
+                console.error('Use findByProps snippet before!');
+                return;
             };
 
             let channel = findByProps('getBasicChannel').getChannel(channelId);
 
             channel.flags_ = 1 << 10;
 
-            return `${channel.name} channel has turned into a Media Channel!`;
+            BdApi.UI.showToast(`${channel.name} channel has turned into a Media Channel!`, {
+                type: "success"
+            })
+            console.log(`${channel.name} channel has turned into a Media Channel!`);
         };
 
         /**
@@ -193,6 +239,10 @@ module.exports = meta => ({
             findByProps("showNotification").showNotification(avatar, sendingUser, content, null, {
                 sound,
                 volume
+            })
+
+            BdApi.UI.showToast('Successfully sent the notification!', {
+                type: "success"
             })
         };
 
@@ -213,7 +263,10 @@ module.exports = meta => ({
                 summaries: topics
             });
 
-            return 'Topics are added! Be fast to see them before they gone!';
+            BdApi.UI.showToast('Topics are added! Be fast to see them before they gone!', {
+                type: "success"
+            })
+            console.log('Topics are added! Be fast to see them before they gone!');
         };
 
         /**
@@ -233,12 +286,20 @@ module.exports = meta => ({
                 ]), m)
                     .find((e) => e?.exports?.Z?.getAPIBaseURL)
                     .exports.Z.post({ url: "/users/@me/channels", body: { recipients: [id] } });
+                
+                BdApi.UI.showToast(`Successfully opened a DM with the user ${id}`, {
+                    type: "success"
+                })
+                
                 console.log(
                     "%c✅ Success\n%cUser has been added to your DMs successfully",
                     "font-size: 50px",
                     "color: green; font-size: 18px"
                 );
             } catch (e) {
+                BdApi.UI.showToast('Something went wrong... Check console for more details', {
+                    type: "error"
+                })
                 console.log(
                     "%c❌ Error!\n%cUser id may be invalid, or script may be outdated. More information:",
                     "font-size: 50px",
@@ -268,9 +329,17 @@ module.exports = meta => ({
                     body: { username: username },
                 })
                 .catch((e) => {
-                    '{"message": "Unauthorized", "code": 40001}' === e.text
-                        ? console.log("%c😀 Not taken!", "font-size: 50px")
-                        : console.log(`%c😥 ${username} is taken`, "font-size: 50px");
+                    if ('{"message": "Unauthorized", "code": 40001}' === e.text) {
+                        BdApi.UI.showToast(`The pomelo ${username} is not taken!`, {
+                            type: "success"
+                        })
+                        console.log("%c😀 Not taken!", "font-size: 50px")
+                    } else {
+                        BdApi.UI.showToast(`The pomelo ${username} is already taken`, {
+                            type: "danger"
+                        })
+                        console.log(`%c😥 ${username} is taken`, "font-size: 50px");
+                    }
                 });
         };
 
@@ -296,7 +365,11 @@ module.exports = meta => ({
 
             module.getCurrentUser = module.getNonImpersonatedCurrentUser = () => (userr);
 
-            return nodes.find(x => x.name == "DeveloperExperimentStore").actionHandler["OVERLAY_INITIALIZE"]();
+            nodes.find(x => x.name == "DeveloperExperimentStore").actionHandler["OVERLAY_INITIALIZE"]();
+
+            BdApi.UI.showToast('Successfully enabled the experiments!', {
+                type: "success"
+            })
         };
 
         /**
@@ -313,6 +386,9 @@ module.exports = meta => ({
                 };
             }]), m).find(m => m?.exports?.Z?.getGuildCount).exports.Z.getGuild(guildId).features = new Set(features);
 
+            BdApi.UI.showToast(`The selected features have been added to the server with ID "${guildId}"`, {
+                type: "success"
+            })
             console.log(`%c[Featured]%c Selected features have been added to the server with ID %c${guildId}!`, 'color: #50C878', '', 'color: #FFD34F');
         };
 
@@ -337,10 +413,22 @@ module.exports = meta => ({
             try {
                 findByProps;
             } catch (error) {
+                BdApi.UI.showToast('Use findByProps snippet before: https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800', {
+                    type: "warn"
+                })
                 return console.error('Use findByProps snippet before: https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800');
             };
 
-            return await findByProps('createInvite').getAllFriendInvites();
+            invites = await findByProps('createInvite').getAllFriendInvites()
+
+            invitesArr = []
+
+            for (const invite of invites) {
+                invitesArr.push(`\`${JSON.stringify(invite)}\``)
+            }
+
+            BdApi.UI.alert('These are all the objects of your friend invites', invitesArr.length > 0 ? invitesArr : 'You have no friend invites')
+            return invites;
         };
 
         /**
@@ -352,14 +440,24 @@ module.exports = meta => ({
             try {
                 findByProps;
             } catch (error) {
+                BdApi.UI.showToast('Use findByProps snippet before: https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800', {
+                    type: "warn"
+                })
                 return console.error('Use findByProps snippet before: https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800');
             };
 
             invites = await findByProps('createInvite').getAllFriendInvites();
             result = invites.find(invite => invite.code === code);
 
-            if (result) return result;
-            else return console.error(`Any friend invites with ${code} could not found!`);
+            if (result) {
+                BdApi.UI.alert(`This the object of the invite with code "${code}"`, `\`${JSON.stringify(result)}\``)
+                return result;
+            } else {
+                BdApi.UI.showToast(`Any friend invites with ${code} could not found!`, {
+                    type: "warn"
+                })
+                return console.error(`Any friend invites with ${code} could not found!`);
+            }
         };
 
         /**
@@ -375,7 +473,11 @@ module.exports = meta => ({
                 return console.error('Use findByProps snippet before: https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800');
             };
 
-            return await findByProps('createInvite').createFriendInvite();
+            invite = await findByProps('createInvite').createFriendInvite();
+
+            BdApi.UI.alert('Here is the object of the invite you just made', JSON.stringify(invite))
+
+            return invite;
         };
 
         /**
@@ -392,7 +494,10 @@ module.exports = meta => ({
 
             await findByProps('createInvite').revokeFriendInvites();
 
-            return 'Your all friend invites are successfully revoked!';
+            BdApi.UI.showToast('Your all friend invites are successfully revoked!', {
+                type: "success"
+            })
+            console.log('Your all friend invites are successfully revoked!');
         };
     },
     stop() { }
