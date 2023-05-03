@@ -3,7 +3,7 @@
  * @author Stef#6705
  * @authorId 694986201739952229
  * @description Enables functions such as findByProps
- * @version 1.0.0
+ * @version 1.1.0
  * @website https://github.com/Stef-00012/BetterDiscord-Plugin/tree/main#enablecustomfunctionspluginjs
  * @source https://github.com/Stef-00012/BetterDiscord-Plugin/blob/main/EnableCustomFunctions.plugin.js
  */
@@ -326,6 +326,73 @@ module.exports = meta => ({
                 module = Object.values(e.c).find(x => x?.exports?.default?.getUsers).exports.default;
             }]);
             return Object.keys(Object.values(module._dispatcher._actionHandlers)[0]).filter(key => key.toLowerCase().includes(query));
+        };
+
+        /**
+         * @method getAllFriendInvites
+         * @author ✨Tolgchu✨#1452
+         * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1102558838848225290
+         */
+        window.getAllFriendInvites = async function () {
+            try {
+                findByProps;
+            } catch (error) {
+                return console.error('Use findByProps snippet before: https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800');
+            };
+
+            return await findByProps('createInvite').getAllFriendInvites();
+        };
+
+        /**
+         * @method getFriendInvite
+         * @author ✨Tolgchu✨#1452
+         * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1102558838848225290
+         */
+        window.getFriendInvite = async function (code) {
+            try {
+                findByProps;
+            } catch (error) {
+                return console.error('Use findByProps snippet before: https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800');
+            };
+
+            invites = await findByProps('createInvite').getAllFriendInvites();
+            result = invites.find(invite => invite.code === code);
+
+            if (result) return result;
+            else return console.error(`Any friend invites with ${code} could not found!`);
+        };
+
+        /**
+         * @method getFriendInvite
+         * @author ✨Tolgchu✨#1452
+         * @credits !-𝐅𝐨𝐱, 𝐉𝐚𝐦𝐞𝐬𝐋𝐘𝐓𝐕𝟐 ✤#6942
+         * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1102558838848225290
+         */
+        window.createFriendInvite = async function () {
+            try {
+                findByProps;
+            } catch (error) {
+                return console.error('Use findByProps snippet before: https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800');
+            };
+
+            return await findByProps('createInvite').createFriendInvite();
+        };
+
+        /**
+         * @method revokeAllFriendInvites
+         * @author ✨Tolgchu✨#1452
+         * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1102558838848225290
+         */
+        window.revokeAllFriendInvites = async function () {
+            try {
+                findByProps;
+            } catch (error) {
+                return console.error('Use findByProps snippet before: https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800');
+            };
+
+            await findByProps('createInvite').revokeFriendInvites();
+
+            return 'Your all friend invites are successfully revoked!';
         };
     },
     stop() { }
