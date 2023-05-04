@@ -290,6 +290,12 @@ module.exports = meta => ({
                 BdApi.UI.showToast(`Successfully opened a DM with the user ${id}`, {
                     type: "success"
                 })
+
+                BdApi.UI.showConfirmationModal('Switch to DM', 'Do you want to switch to the DM you\'ve just created?', {
+                    confirmText: "Yes",
+                    onConfirm: () => BdApi.Webpack.getModule(m => m?.openPrivateChannel).openPrivateChannel(id),
+                    cancelText: "No"
+                })
                 
                 console.log(
                     "%c✅ Success\n%cUser has been added to your DMs successfully",
