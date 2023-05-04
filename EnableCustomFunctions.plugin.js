@@ -316,40 +316,6 @@ module.exports = meta => ({
         };
 
         /**
-         * @method checkPomelo
-         * @author RedNix#0816
-         * @source https://discord.gg/discord-603970300668805120 - https://discord.com/channels/603970300668805120/1099791239710265455
-         */
-        window.checkPomelo = async function (username) {
-            await (webpackChunkdiscord_app.push([
-                [""],
-                {},
-                (e) => {
-                    m = [];
-                    for (let s in e.c) m.push(e.c[s]);
-                },
-            ]), m)
-                .find((e) => e?.exports?.Z?.getAPIBaseURL)
-                .exports.Z.post({
-                    url: "/users/@me/pomelo-attempt",
-                    body: { username: username },
-                })
-                .catch((e) => {
-                    if ('{"message": "Unauthorized", "code": 40001}' === e.text) {
-                        BdApi.UI.showToast(`The pomelo ${username} is not taken!`, {
-                            type: "success"
-                        })
-                        console.log("%c😀 Not taken!", "font-size: 50px")
-                    } else {
-                        BdApi.UI.showToast(`The pomelo ${username} is already taken`, {
-                            type: "danger"
-                        })
-                        console.log(`%c😥 ${username} is taken`, "font-size: 50px");
-                    }
-                });
-        };
-
-        /**
          * @method enableExperiments
          * @author ✨Tolgchu✨#1452
          * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1090279880878460950
