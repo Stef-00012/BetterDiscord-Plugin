@@ -20,12 +20,12 @@ getActionHandler('ChannelStore', 'CHANNEL_CREATE');
 ![getActionHandler](https://user-images.githubusercontent.com/81536172/235297144-9c08d2a8-cafd-4578-bc65-2de5535397db.png)
 
 
-- ### `getFunction(functionName)`
+- ### `getFunction(functionName, position = 0)` (`position` is optional)
 #### Source: [Discord server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1099724648389808220)
 #### Author: [✨Tolgchu✨#1452](https://discord.com/users/329671025312923648) (`329671025312923648`)
 #### Example:
 ```js
-getFunction('getChannel')
+getFunction('getChannel', 0)
 ```
 ![getFunction](https://user-images.githubusercontent.com/81536172/235297195-de02fc9a-8719-4d03-897c-1c5684e3c2a6.png)
 
@@ -71,14 +71,24 @@ searchExperiment('2021-12_soundboard')
 ![searchExperiment](https://user-images.githubusercontent.com/81536172/235297357-97ca84b6-b3d2-45b9-b504-d9adf30a58ac.png)
 
 
-- ### `listServerFeatures()`
+- ### `listAllServerFeatures()`
 #### Source: [Discord server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1097942131542331433)
 #### Author: [HumanCat222#0001](https://discord.com/users/676018450115854347) (`676018450115854347`)
 #### Example:
 ```js
-listServerFeatures()
+listAllServerFeatures()
 ```
-![listServerFeatures](https://user-images.githubusercontent.com/81536172/235297414-2e7bd40d-1449-4364-bc10-5a31fcaebe97.png)
+![listAllServerFeatures](https://user-images.githubusercontent.com/81536172/235297414-2e7bd40d-1449-4364-bc10-5a31fcaebe97.png)
+
+
+- ### `listServerFeatures(serverName)`
+#### Source: [Discord server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1097942131542331433)
+#### Author: [HumanCat222#0001](https://discord.com/users/676018450115854347) (`676018450115854347`)
+#### Contributors: [Stef#6705](https://discord.com/users/) (``)
+#### Example:
+```js
+listServerFeatures('discord experiment hub')
+```
 
 
 - ### `getAllFunctions()`
@@ -186,16 +196,6 @@ addDM('643945264868098049') //this adds Discord system account to your dms
 ![addDM](https://user-images.githubusercontent.com/81536172/235298869-40eace7e-bd20-4115-8aaa-eba1ba812f60.png)
 
 
-- ### `checkPomelo(username)`
-#### Source: [Discord server](https://discord.gg/discord-603970300668805120) - [Channel Post](https://discord.com/channels/603970300668805120/1099791239710265455)
-#### Author: [RedNix#0816](https://discord.com/users/701339955087278091) (`701339955087278091`)
-#### Example:
-```js
-checkPomelo('Stef_DP')
-```
-![checkPomelo](https://user-images.githubusercontent.com/81536172/235298937-f0432755-4777-4a39-b373-a9d82317497b.png)
-
-
 - ### `searchActionHandlers(query)`
 #### Source: [Discord Server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1101909086456512682)
 #### Author: [✨Tolgchu✨#1452](https://discord.com/users/329671025312923648) (`329671025312923648`)
@@ -204,3 +204,44 @@ checkPomelo('Stef_DP')
 searchActionHandlers('channel')
 ```
 ![searchActionHandlers](https://user-images.githubusercontent.com/81536172/235314678-a1af4c90-035d-4015-97fe-2cf4dab16f80.png)
+
+
+- ### `getAllFriendInvites()`
+#### Source: [Discord Server](https://discord.gg/RmK8aGkSuZ) - [Channel Post](https://discord.com/channels/1089540433010491392/1102558838848225290)
+#### Author: [](https://discord.com/users/329671025312923648) (`329671025312923648`)
+#### Example:
+```js
+getAllFriendInvites()
+```
+
+
+- ### `grtFriendInvite(inviteCode)`
+#### Source: [Discord Server]() - [Channel Post]()
+#### Author: [](https://discord.com/users/329671025312923648) (`329671025312923648`)
+#### Example:
+```js
+grtFriendInvite('')
+```
+
+
+- ### `createFriendInvite()`
+#### Source: [Discord Server]() - [Channel Post]()
+#### Author: [](https://discord.com/users/329671025312923648) (`329671025312923648`)
+#### Example:
+```js
+createFriendInvite()
+```
+
+
+- ### `revokeAllFriendInvites()`
+#### Source: [Discord Server]() - [Channel Post]()
+#### Author: [](https://discord.com/users/329671025312923648) (`329671025312923648`)
+#### Example:
+```js
+revokeAllFriendInvites()
+```
+
+## ToDo:
+[ ] Add image to `listServerFeatures`, `getAllFriendInvites`, `getFriendInvite`, `createFriendInvite` and `revokeAllFriendInvites` functions
+[ ] Update all images to show BD popups
+[ ] Add invite code to `getFriendInvite` example
