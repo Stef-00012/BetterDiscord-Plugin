@@ -246,4 +246,4 @@ revokeAllFriendInvites()
 - [ ] Update all images to show BD popups
 - [ ] Add invite code to `getFriendInvite` example
 - [ ] Add a GUI to the plugin so users don't have to use the console
-- [ ] Use BetterDiscord's Webpack module
+- [ ] Use BetterDiscord's Webpack module (`BdApi.Webpack`) instead of discord integrated one (`webpackChunkdiscord_app`)
