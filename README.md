@@ -242,6 +242,8 @@ revokeAllFriendInvites()
 ```
 
 ## ToDo:
-[ ] Add image to `listServerFeatures`, `getAllFriendInvites`, `getFriendInvite`, `createFriendInvite` and `revokeAllFriendInvites` functions
-[ ] Update all images to show BD popups
-[ ] Add invite code to `getFriendInvite` example
+- [ ] Add image to `listServerFeatures`, `getAllFriendInvites`, `getFriendInvite`, `createFriendInvite` and `revokeAllFriendInvites` functions
+- [ ] Update all images to show BD popups
+- [ ] Add invite code to `getFriendInvite` example
+- [ ] Add a GUI to the plugin so users don't have to use the console
+- [ ] Use BetterDiscord's Webpack module
