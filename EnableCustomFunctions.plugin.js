@@ -373,16 +373,16 @@ module.exports = meta => ({
 
             for (const invite of invites) {
                 invitesArr.push(`# Invite info:`)
-                invitesArr.push(`Code: \`${invite.code}\``)
-                invitesArr.push(`Max age: ${invite.max_age}`)
-                invitesArr.push(`Max uses: ${invite.max_uses}`)
-                invitesArr.push(`Creation date: ${new Date(invite.created_at).toGMTString()}`)
-                invitesArr.push(`Expiration date: ${new Date(invite.expires_at).toGMTString()}`)
+                invitesArr.push(`**Code**: \`${invite.code}\``)
+                invitesArr.push(`**Max age**: ${invite.max_age}`)
+                invitesArr.push(`**Max uses**: ${invite.max_uses}`)
+                invitesArr.push(`**Creation date**: ${new Date(invite.created_at).toGMTString()}`)
+                invitesArr.push(`**Expiration date**: ${new Date(invite.expires_at).toGMTString()}`)
                 
                 invitesArr.push(`# Inviter info:`)
-                invitesArr.push(`Username: ${invite.inviter.username}`)
-                invitesArr.push(`Discriminator: ${invite.inviter.discriminator}`)
-                invitesArr.push(`ID: \`${invite.inviter.id}\``)
+                invitesArr.push(`**Username**: ${invite.inviter.username}`)
+                invitesArr.push(`**Discriminator**: ${invite.inviter.discriminator}`)
+                invitesArr.push(`**ID**: \`${invite.inviter.id}\``)
                 invitesArr.push('\u200b')
                 invitesArr.push('\u200b')
             }
@@ -418,15 +418,15 @@ module.exports = meta => ({
             if (result) {
                 BdApi.UI.alert(`This the info of the selected invite code`, [
                     `# Invite info:`,
-                    `Code: ${result.code}`,
-                    `Max age: ${result.max_age}`,
-                    `Max uses: ${result.max_uses}`,
-                    `Creation date: ${new Date(result.created_at).toGMTString()}`,
-                    `Expiration date: ${new Date(result.expires_at).toGMTString()}`,
+                    `**Code**: \`${result.code}\``,
+                    `**Max age**: ${result.max_age}`,
+                    `**Max uses**: ${result.max_uses}`,
+                    `**Creation date**: ${new Date(result.created_at).toGMTString()}`,
+                    `**Expiration date**: ${new Date(result.expires_at).toGMTString()}`,
                     `# Inviter info:`,
-                    `Username: ${result.inviter.username}`,
-                    `Discriminator: ${result.inviter.discriminator}`,
-                    `ID: ${result.inviter.id}`
+                    `**Username**: ${result.inviter.username}`,
+                    `**Discriminator**: ${result.inviter.discriminator}`,
+                    `**ID**: \`${result.inviter.id}\``
                 ])
                 return result;
             } else {
@@ -457,15 +457,15 @@ module.exports = meta => ({
 
             BdApi.UI.alert('Here is the info of the invite you just made', [
                 `# Invite info:`,
-                `Code: ${invite.code}`,
-                `Max age: ${invite.max_age}`,
-                `Max uses: ${invite.max_uses}`,
-                `Creation date: ${new Date(invite.created_at).toGMTString()}`,
-                `Expiration date: ${new Date(invite.expires_at).toGMTString()}`,
+                `**Code**: \`${invite.code}\``,
+                `**Max age**: ${invite.max_age}`,
+                `**Max uses**: ${invite.max_uses}`,
+                `**Creation date**: ${new Date(invite.created_at).toGMTString()}`,
+                `**Expiration date**: ${new Date(invite.expires_at).toGMTString()}`,
                 `# Inviter info:`,
-                `Username: ${invite.inviter.username}`,
-                `Discriminator: ${invite.inviter.discriminator}`,
-                `ID: ${invite.inviter.id}`
+                `**Username**: ${invite.inviter.username}`,
+                `**Discriminator**: ${invite.inviter.discriminator}`,
+                `**ID**: \`${invite.inviter.id}\``
             ])
 
             return invite;
@@ -494,5 +494,35 @@ module.exports = meta => ({
             console.log('Successfully revoked all you friend invites');
         };
     },
-    stop() { }
+    stop() {
+        const functions = [
+            'findByprops', 
+            'getActionHandler',
+            'getFunction',
+            'getStore',
+            'searchFunctions',
+            'searchStores',
+            'searchExperiment',
+            'listAllServerFeatures',
+            'listServerFeatures',
+            'getAllFunctions',
+            'addAllFeatures',
+            'addFeatures',
+            'enableExperiments',
+            'listExperiments',
+            'convertToMedia',
+            'testNotification',
+            'addTopics',
+            'addDM',
+            'searchActionHandlers',
+            'getAllFriendInvites',
+            'getFriendInvite',
+            'createFriendInvite',
+            'revokeAllFriendInvites'
+        ]
+
+        for (const fn of functions) {
+            delete window[fn]
+        }
+    }
 });

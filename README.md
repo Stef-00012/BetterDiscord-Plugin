@@ -222,7 +222,7 @@ https://user-images.githubusercontent.com/81536172/236669357-5d4d8d70-9635-415e-
 #### Author: [](https://discord.com/users/329671025312923648) (`329671025312923648`)
 #### Example:
 ```js
-getFriendInvite('')
+getFriendInvite('5fUMr7Rf')
 ```
 https://user-images.githubusercontent.com/81536172/236669372-f4ea8a6f-bee2-4ab8-aaf9-21698040bf00.mp4
 
@@ -247,8 +247,8 @@ revokeAllFriendInvites()
 https://user-images.githubusercontent.com/81536172/236669249-4e1df840-54eb-4535-8137-b785f0c93459.mp4
 
 ## ToDo:
-- [ ] Add image to `listServerFeatures`, `getAllFriendInvites`, `getFriendInvite`, `createFriendInvite` and `revokeAllFriendInvites` functions
-- [ ] Update all images to show BD popups
-- [ ] Add invite code to `getFriendInvite` example
+- [x] Add image to `listServerFeatures`, `getAllFriendInvites`, `getFriendInvite`, `createFriendInvite` and `revokeAllFriendInvites` functions
+- [x] Update all images to show BD popups
+- [x] Add invite code to `getFriendInvite` example
 - [ ] Add a GUI to the plugin so users don't have to use the console
 - [ ] Use BetterDiscord's Webpack module (`BdApi.Webpack`) instead of discord integrated one (`webpackChunkdiscord_app`)
