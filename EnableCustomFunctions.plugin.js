@@ -38,7 +38,9 @@ module.exports = meta => ({
          * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1099723941314048020
          */
         window.getActionHandler = function (store, actionHandler) {
-            let stores = getStore(store, false);
+            let stores = getStore(store, {
+                first: false
+            });
             let found;
 
             for (var store of stores) {
