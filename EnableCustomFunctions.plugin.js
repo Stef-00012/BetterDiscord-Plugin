@@ -12,7 +12,7 @@ module.exports = meta => ({
     start() {
         /**
          * @method findByProps
-         * @author BetterDiscord built-in
+         * @credits BetterDiscord built-in
          */
         window.findByProps = function (...props) {
             return BdApi.Webpack.getModule(BdApi.Webpack.Filters.byProps(props))
