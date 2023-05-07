@@ -12,38 +12,32 @@ module.exports = meta => ({
     start() {
         /**
          * @method findByProps
-         * @author ✨Tolgchu✨#1452
-         * @credits Vocane#4200
-         * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1090280191416352800
+         * @author BetterDiscord built-in
          */
         window.findByProps = function (...props) {
-            mods = webpackChunkdiscord_app.push([[Symbol()], {}, ({ c }) => Object.values(c)]);
+            return BdApi.Webpack.getModule(BdApi.Webpack.Filters.byProps(props))
+        };
 
-            webpackChunkdiscord_app.pop();
-
-            for (let m of mods) {
-                try {
-                    if (!m.exports || m.exports === window) continue;
-                    if (props.every((x) => m.exports?.[x])) return m.exports;
-
-                    for (let ex in m.exports) {
-                        if (props.every((x) => m.exports?.[ex]?.[x])) return m.exports[ex];
-                    };
-                } catch { };
-            };
+        /**
+         * @method getStore
+         * @author ✨Tolgchu✨#1452
+         * @contributors Stef#6705
+         * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1099725409492422656
+         */
+        window.getStore = function (store, extra = { first: true, position: 0 }) {
+            return extra.first ?
+            Object.values(Object.values(findByProps('getUsers')._dispatcher._actionHandlers)[3].nodes).filter(s => s.name == store)[extra.position] :
+            Object.values(Object.values(findByProps('getUsers')._dispatcher._actionHandlers)[3].nodes).filter(s => s.name == store);
         };
 
         /**
          * @method getActionHandler
          * @author ✨Tolgchu✨#1452
+         * @contributors Stef#6705
          * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1099723941314048020
          */
         window.getActionHandler = function (store, actionHandler) {
-            webpackChunkdiscord_app.push([[Symbol()], {}, (e) => {
-                module = Object.values(e.c).find(x => x?.exports?.default?.getUsers).exports.default;
-            }]);
-
-            let stores = Object.values(Object.values(module._dispatcher._actionHandlers)[3].nodes).filter(s => s.name === store);
+            let stores = getStore(store, false);
             let found;
 
             for (var store of stores) {
@@ -62,32 +56,25 @@ module.exports = meta => ({
         /**
          * @method getFunction
          * @author ✨Tolgchu✨#1452
+         * @contributors Stef#6705
          * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1099726086209814638
          */
         window.getFunction = function (f, position = 0) {
-            return webpackChunkdiscord_app.push([[Symbol()], {}, e => Object.values(e.c)]).filter(m => m?.exports?.Z?.[f])[position]?.exports?.Z?.[f];
-        };
-
-        /**
-         * @method getStore
-         * @author ✨Tolgchu✨#1452
-         * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1099725409492422656
-         */
-        window.getStore = function (store) {
-            webpackChunkdiscord_app.push([[Symbol()], {}, (e) => {
-                module = Object.values(e.c).find(x => x?.exports?.default?.getUsers).exports.default;
-            }]);
-
-            return Object.values(Object.values(module._dispatcher._actionHandlers)[3].nodes).filter(s => s.name === store)[0];
+            return BdApi.Webpack.getModule(m => m?.Z?.[f], {
+                first: false
+            })[position]?.Z?.[f];
         };
 
         /**
          * @method searchFunctions
          * @author ✨Tolgchu✨#1452
+         * @contributors Stef#6705
          * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1099726086209814638
          */
         window.searchFunctions = function (query) {
-            return webpackChunkdiscord_app.push([[Symbol()], {}, e => Object.values(e.c)]).filter(m => typeof m?.exports?.Z === "object").map(m => Object.entries(m?.exports?.Z).filter(entry => typeof entry[1] === "function" && entry[0].toLowerCase().includes(query)).map(entry => entry[0])).filter(array => array.length !== 0);
+            return BdApi.Webpack.getModule(m => typeof m?.Z === "object", {
+                first: false
+            }).map(m => Object.entries(m?.Z).filter(entry => typeof entry[1] === "function" && entry[0].toLowerCase().includes(query)).map(entry => entry[0])).filter(array => array.length !== 0);
         };
 
         /**
@@ -111,6 +98,7 @@ module.exports = meta => ({
         /**
          * @method searchExperiment
          * @author Davri#0015
+         * @contributors Stef#6705
          * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1097941394825412789
          */
         window.searchExperiment = function (experiment) {
@@ -122,11 +110,12 @@ module.exports = meta => ({
         /**
          * @method listAllServerFeatures
          * @author HumanCat222#0001
+         * @contributors Stef#6705
          * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1097942131542331433
          */
         window.listAllServerFeatures = async function () {
             let BDOutput =  []
-            let guilds = await (webpackChunkdiscord_app.push([[''], {}, e => { m = []; for (let c in e.c) m.push(e.c[c]) }]), m).find(m => m?.exports?.Z?.getGuildCount).exports.Z.getGuilds()
+            let guilds = findByProps('getGuildCount').getGuilds()
             Object.values(guilds).forEach(guild => {
                 let features = (guild.features)
                 BDOutput.push(`# ${guild.name}:`)
@@ -146,7 +135,7 @@ module.exports = meta => ({
          * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1097942131542331433
          */
         window.listServerFeatures = async function (guildId) {
-            let guilds = await (webpackChunkdiscord_app.push([[''], {}, e => { m = []; for (let c in e.c) m.push(e.c[c]) }]), m).find(m => m?.exports?.Z?.getGuildCount).exports.Z.getGuilds()
+            let guilds = findByProps('getGuildCount').getGuilds()
             const exists = Object.values(guilds).find(guild => guild.id == guildId)
 
             if (exists) {
@@ -164,10 +153,13 @@ module.exports = meta => ({
         /**
          * @method getAllFunctions
          * @author ✨Tolgchu✨#1452
+         * @contributors Stef#6705
          * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1099720606880104519
          */
         window.getAllFunctions = function () {
-            return webpackChunkdiscord_app.push([[Symbol()], {}, e => Object.values(e.c)]).filter(m => typeof m?.exports?.Z === "object").map(m => Object.entries(m?.exports?.Z).filter(entry => typeof entry[1] === "function").map(entry => entry[0]));
+            return BdApi.Webpack.getModule(m => typeof m?.Z === "object", {
+                first: false
+            }).map(m => Object.entries(m?.Z).filter(entry => typeof entry[1] === "function").map(entry => entry[0]));
         };
 
         /**
@@ -299,12 +291,11 @@ module.exports = meta => ({
         /**
          * @method enableExperiments
          * @author ✨Tolgchu✨#1452
+         * @contributors Stef#6705
          * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1090279880878460950
          */
         window.enableExperiments = function () {
-            webpackChunkdiscord_app.push([[0], {}, (e) => {
-                module = Object.values(e.c).find(x => x?.exports?.default?.getUsers).exports.default;
-            }]);
+            module = findByProps('getUsers');
 
             nodes = Object.values(module._dispatcher._actionHandlers._dependencyGraph.nodes);
             userr = module.getCurrentUser();
@@ -343,13 +334,11 @@ module.exports = meta => ({
         /**
          * @method searchActionHandlers
          * @author ✨Tolgchu✨#1452
+         * @contributors Stef#6705
          * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1101909086456512682
          */
         window.searchActionHandlers = function (query) {
-            webpackChunkdiscord_app.push([[0], {}, (e) => {
-                module = Object.values(e.c).find(x => x?.exports?.default?.getUsers).exports.default;
-            }]);
-            return Object.keys(Object.values(module._dispatcher._actionHandlers)[0]).filter(key => key.toLowerCase().includes(query));
+            return Object.keys(Object.values(findByProps('getUsers')._dispatcher._actionHandlers)[0]).filter(key => key.toLowerCase().includes(query));
         };
 
         /**
@@ -496,7 +485,7 @@ module.exports = meta => ({
     },
     stop() {
         const functions = [
-            'findByprops', 
+            'findByProps', 
             'getActionHandler',
             'getFunction',
             'getStore',
