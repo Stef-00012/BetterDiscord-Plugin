@@ -7,7 +7,7 @@
 ```js
 findByProps('getAPIBaseURL')
 ```
-![findByProps](https://user-images.githubusercontent.com/81536172/235297115-dc50cd0d-5276-45b9-b0a2-8dc842ba377e.png)
+https://user-images.githubusercontent.com/81536172/236669341-6aa68e3f-0292-4a0c-9938-14621c95c97d.mp4
 
 
 - ### `getActionHandler(store, actionHandler)`
@@ -17,7 +17,7 @@ findByProps('getAPIBaseURL')
 ```js
 getActionHandler('ChannelStore', 'CHANNEL_CREATE');
 ```
-![getActionHandler](https://user-images.githubusercontent.com/81536172/235297144-9c08d2a8-cafd-4578-bc65-2de5535397db.png)
+https://user-images.githubusercontent.com/81536172/236669346-9fa4e7d5-961a-48ef-83f3-53ea82ae6425.mp4
 
 
 - ### `getFunction(functionName, position = 0)` (`position` is optional)
@@ -27,7 +27,7 @@ getActionHandler('ChannelStore', 'CHANNEL_CREATE');
 ```js
 getFunction('getChannel', 0)
 ```
-![getFunction](https://user-images.githubusercontent.com/81536172/235297195-de02fc9a-8719-4d03-897c-1c5684e3c2a6.png)
+https://user-images.githubusercontent.com/81536172/236669379-9a8f7c1c-e65e-44b3-a3df-978decdd3b9d.mp4
 
 
 - ### `getStore(store)`
@@ -37,7 +37,7 @@ getFunction('getChannel', 0)
 ```js
 getStore('ChannelStore')
 ```
-![getStore](https://user-images.githubusercontent.com/81536172/235297226-9cc39aab-9f54-4e51-a3b6-ccffdb917952.png)
+https://user-images.githubusercontent.com/81536172/236669386-18ed0088-5eee-4bc4-9792-e3ca80e422ac.mp4
 
 
 - ### `searchFunctions(query)`
@@ -47,7 +47,7 @@ getStore('ChannelStore')
 ```js
 searchFunctions('user')
 ```
-![searchFunctions](https://user-images.githubusercontent.com/81536172/235309148-f91fddb1-7512-4617-9fdc-f7f879eb297b.png)
+https://user-images.githubusercontent.com/81536172/236669272-d6e992b5-1d00-4ec4-991b-9b444dadc27d.mp4
 
 
 - ### `searchStores(query)`
@@ -58,7 +58,7 @@ searchFunctions('user')
 ```js
 searchStores('channel')
 ```
-![searchStores](https://user-images.githubusercontent.com/81536172/235309184-39abe493-6ac9-4abd-b1ac-62e0f60b3847.png)
+https://user-images.githubusercontent.com/81536172/236669276-7be35fda-f4e6-4034-aaa8-800daf1e0af2.mp4
 
 
 - ### `searchExperiment(experiment)`
@@ -68,7 +68,7 @@ searchStores('channel')
 ```js
 searchExperiment('2021-12_soundboard')
 ```
-![searchExperiment](https://user-images.githubusercontent.com/81536172/235297357-97ca84b6-b3d2-45b9-b504-d9adf30a58ac.png)
+https://user-images.githubusercontent.com/81536172/236669267-9ed520b9-c614-4dfd-9787-34ccdef450aa.mp4
 
 
 - ### `listAllServerFeatures()`
@@ -78,7 +78,7 @@ searchExperiment('2021-12_soundboard')
 ```js
 listAllServerFeatures()
 ```
-![listAllServerFeatures](https://user-images.githubusercontent.com/81536172/235297414-2e7bd40d-1449-4364-bc10-5a31fcaebe97.png)
+https://user-images.githubusercontent.com/81536172/236669391-5062172f-3608-4761-b7d1-983396216243.mp4
 
 
 - ### `listServerFeatures(serverName)`
@@ -89,6 +89,7 @@ listAllServerFeatures()
 ```js
 listServerFeatures('discord experiment hub')
 ```
+https://user-images.githubusercontent.com/81536172/236669243-6fd1ec38-2117-4c15-b21b-f366748e132a.mp4
 
 
 - ### `getAllFunctions()`
@@ -98,7 +99,7 @@ listServerFeatures('discord experiment hub')
 ```js
 getAllFunctions()
 ```
-![getAllFunctions](https://user-images.githubusercontent.com/81536172/235297553-f4dcea7b-c792-48bd-8f1a-14d8215303d3.png)
+https://user-images.githubusercontent.com/81536172/236669368-23b147c7-1551-427b-beae-b53d94bf86b7.mp4
 
 
 - ### `addAllFeatures(serverId)`
@@ -108,7 +109,7 @@ getAllFunctions()
 ```js
 addAllFeatures('1089540433010491392')
 ```
-![addAllFeatures](https://user-images.githubusercontent.com/81536172/235297665-d2936988-7f70-47e8-900f-0dea8d7fb2d1.png)
+https://user-images.githubusercontent.com/81536172/236669295-66d909ef-1125-45d4-bdaf-405d846bf6d8.mp4
 
 
 - ### `addFeatures(serverId, features)`
@@ -118,7 +119,7 @@ addAllFeatures('1089540433010491392')
 ```js
 addFeatures('1089540433010491392', ['INTERNAL_EMPLOYEE_ONLY'])
 ```
-![addFeatures](https://user-images.githubusercontent.com/81536172/235309318-27a504f4-faa4-42cd-8123-6769bbf6e469.png)
+https://user-images.githubusercontent.com/81536172/236669312-6bc31615-a3b5-46bc-93a8-c01bd8c10983.mp4
 
 
 - ### `enableExperiments()`
@@ -128,7 +129,7 @@ addFeatures('1089540433010491392', ['INTERNAL_EMPLOYEE_ONLY'])
 ```js
 enableExperiments()
 ```
-![enableExperiments](https://user-images.githubusercontent.com/81536172/235297789-113f1c0e-dc1f-474f-9d18-98af67459124.png)
+https://user-images.githubusercontent.com/81536172/236669284-db69dd86-5924-468e-87e3-69310680fc6f.mp4
 
 
 - ### `listExperiments()`
@@ -138,7 +139,7 @@ enableExperiments()
 ```js
 listExperiments()
 ```
-![listExperiments](https://user-images.githubusercontent.com/81536172/235297808-f3d7c957-bafc-4d3d-9f30-84e7b376ae73.png)
+https://user-images.githubusercontent.com/81536172/236669397-8b7cd351-177f-42a2-8520-c7762d1ec823.mp4
 
 
 - ### `convertToMedia(channelId)`
@@ -148,7 +149,7 @@ listExperiments()
 ```js
 convertToMedia('1093451591400558613')
 ```
-![convertToMedia](https://user-images.githubusercontent.com/81536172/235297895-0638d9a9-1703-4fcf-992e-32c739bfd081.png)
+https://user-images.githubusercontent.com/81536172/236669333-62b06e22-2218-47d8-b8e0-92b9c6fd15f4.mp4
 
 
 - ### `testNotification(data)` (`data` is optional)
@@ -164,7 +165,7 @@ testNotification({
   volume: 1 //volume of the notification
 })
 ```
-![testNotification](https://user-images.githubusercontent.com/81536172/235298784-988237d7-f3d5-4302-bc8d-542f98ae0f15.png)
+https://user-images.githubusercontent.com/81536172/236669280-733166e0-7807-4485-9332-6cd553435b7f.mp4
 
 
 - ### `addTopics(channelId, topics)`
@@ -183,7 +184,7 @@ addTopics('1089808002359504946', [
   }
 ])
 ```
-![addTopics](https://user-images.githubusercontent.com/81536172/235298818-53371193-3f58-48eb-96ac-b58f3e663625.png)
+https://user-images.githubusercontent.com/81536172/236669323-7810ebe7-ff2b-4ab0-b57a-5c5ace84298e.mp4
 
 
 - ### `addDM(userId)`
@@ -193,7 +194,7 @@ addTopics('1089808002359504946', [
 ```js
 addDM('643945264868098049') //this adds Discord system account to your dms
 ```
-![addDM](https://user-images.githubusercontent.com/81536172/235298869-40eace7e-bd20-4115-8aaa-eba1ba812f60.png)
+https://user-images.githubusercontent.com/81536172/236669304-0572df0e-942f-4c44-a1e2-c9a097c9732f.mp4
 
 
 - ### `searchActionHandlers(query)`
@@ -203,7 +204,7 @@ addDM('643945264868098049') //this adds Discord system account to your dms
 ```js
 searchActionHandlers('channel')
 ```
-![searchActionHandlers](https://user-images.githubusercontent.com/81536172/235314678-a1af4c90-035d-4015-97fe-2cf4dab16f80.png)
+https://user-images.githubusercontent.com/81536172/236669261-fc5149e6-d0c5-43d6-ae0a-f1e95312fbe7.mp4
 
 
 - ### `getAllFriendInvites()`
@@ -213,15 +214,17 @@ searchActionHandlers('channel')
 ```js
 getAllFriendInvites()
 ```
+https://user-images.githubusercontent.com/81536172/236669357-5d4d8d70-9635-415e-b9ea-2feb6aaaa35e.mp4
 
 
-- ### `grtFriendInvite(inviteCode)`
+- ### `getFriendInvite(inviteCode)`
 #### Source: [Discord Server]() - [Channel Post]()
 #### Author: [](https://discord.com/users/329671025312923648) (`329671025312923648`)
 #### Example:
 ```js
-grtFriendInvite('')
+getFriendInvite('')
 ```
+https://user-images.githubusercontent.com/81536172/236669372-f4ea8a6f-bee2-4ab8-aaf9-21698040bf00.mp4
 
 
 - ### `createFriendInvite()`
@@ -231,6 +234,7 @@ grtFriendInvite('')
 ```js
 createFriendInvite()
 ```
+https://user-images.githubusercontent.com/81536172/236669337-f718e112-a60c-47cf-9b99-5e4c93adc477.mp4
 
 
 - ### `revokeAllFriendInvites()`
@@ -240,6 +244,7 @@ createFriendInvite()
 ```js
 revokeAllFriendInvites()
 ```
+https://user-images.githubusercontent.com/81536172/236669249-4e1df840-54eb-4535-8137-b785f0c93459.mp4
 
 ## ToDo:
 - [ ] Add image to `listServerFeatures`, `getAllFriendInvites`, `getFriendInvite`, `createFriendInvite` and `revokeAllFriendInvites` functions

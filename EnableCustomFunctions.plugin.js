@@ -3,7 +3,7 @@
  * @author Stef#6705
  * @authorId 694986201739952229
  * @description Enables functions such as findByProps
- * @version 1.1.0
+ * @version 1.2.0
  * @website https://github.com/Stef-00012/BetterDiscord-Plugin/tree/main#enablecustomfunctionspluginjs
  * @source https://github.com/Stef-00012/BetterDiscord-Plugin/blob/main/EnableCustomFunctions.plugin.js
  */
@@ -52,10 +52,10 @@ module.exports = meta => ({
 
             if (found) return found.actionHandler[actionHandler];
             else {
-                BdApi.UI.showToast(`${actionHandler} action handler could not found!`, {
+                BdApi.UI.showToast(`"${actionHandler}" action handler could not found!`, {
                     type: "error"
                 })
-                return console.error(`${actionHandler} action handler could not found!`);
+                return console.error(`"${actionHandler}" action handler could not found!`);
             }
         };
 
@@ -99,10 +99,10 @@ module.exports = meta => ({
             try {
                 findByProps;
             } catch (error) {
-                BdApi.UI.showToast('Use findByProps snippet before: https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800', {
+                BdApi.UI.showToast('You must use the "findByProps" snippet before this one. Check the console for more info', {
                     type: "warn"
                 })
-                return console.error('Use findByProps snippet before: https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800');
+                return console.error('You must use the "findByProps" snippet before this one.\nget it from https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800');
             };
 
             return Object.fromEntries(findByProps('connectStores').Store.getAll().filter(store => store.getName().toLowerCase().includes(query)).map(matchingStore => [matchingStore.getName(), matchingStore]));
@@ -136,7 +136,7 @@ module.exports = meta => ({
                 console.log(`${guild.name} has the following features: ${Array.from(features).join(', ')}`)
             })
 
-            BdApi.UI.alert('There are the features for each of your servers', BDOutput)
+            BdApi.UI.alert('These are the features for each of your servers', BDOutput)
         }
         
         /**
@@ -145,18 +145,19 @@ module.exports = meta => ({
          * @contributors Stef#6705
          * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1097942131542331433
          */
-        window.listServerFeatures = async function (guildName) {
+        window.listServerFeatures = async function (guildId) {
             let guilds = await (webpackChunkdiscord_app.push([[''], {}, e => { m = []; for (let c in e.c) m.push(e.c[c]) }]), m).find(m => m?.exports?.Z?.getGuildCount).exports.Z.getGuilds()
-            const exists = Object.values(guilds).find(guild => guild.name.toLowerCase() == guildName.toLowerCase())
+            const exists = Object.values(guilds).find(guild => guild.id == guildId)
 
             if (exists) {
-                let features = (exists.features)
+                let features = exists.features
                 BdApi.UI.alert(`These are all the features of the "${exists.name}" server`, Array.from(features).join(', '))
-                console.log(`${exists.name} has the following features: ${Array.from(features).join(', ')}`)
+                console.log(`These are all the features of the "${exists.name}" server: ${Array.from(features).join(', ')}`)
             } else {
-                BdApi.UI.showToast(`No server with the name "${guildName}" was found`, {
+                BdApi.UI.showToast(`No server found with the ID "${guildId}"`, {
                     type: 'error'
                 })
+                console.error(`No server found with the ID "${guildId}"`)
             }
         }
 
@@ -175,18 +176,12 @@ module.exports = meta => ({
          * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1097935744523313162
          */
         window.addAllFeatures = function (guildId) {
-            (webpackChunkdiscord_app.push([[Symbol()], {}, e => {
-                m = [];
+            findByProps('getGuildCount').getGuild(guildId).features = new Set(["ROLE_SUBSCRIPTIONS_AVAILABLE_FOR_PURCHASE", "WELCOME_SCREEN_ENABLED", "NEWS", "COMMUNITY", "MEMBER_VERIFICATION_GATE_ENABLED", "PRIVATE_THREADS", "PREVIEW_ENABLED", "SEVEN_DAY_THREAD_ARCHIVE", "THREADS_ENABLED", "THREADS_ENABLED_TESTING", "THREE_DAY_THREAD_ARCHIVE", "VANITY_URL", "PARTNERED", "MONETIZATION_ENABLED", "COMMERCE", "ANIMATED_BANNER", "BANNER", "ROLE_ICONS", "ANIMATED_ICON", "MEMBER_PROFILES", "VIP_REGIONS", "ENABLED_DISCOVERABLE_BEFORE", "MORE_EMOJI", "VERIFIED", "FEATURABLE", "HAS_DIRECTORY_ENTRY", "INVITE_SPLASH", "DISCOVERABLE", "NEW_THREAD_PERMISSIONS", "CHANNEL_BANNER", "TEXT_IN_VOICE_ENABLED", "ROLE_SUBSCRIPTIONS_ENABLED_FOR_PURCHASE", "ROLE_SUBSCRIPTIONS_ENABLED", "PREMIUM_TIER_3_OVERRIDE", "MORE_STICKERS", "RELAY_ENABLED", "INTERNAL_EMPLOYEE_ONLY", "FORCE_RELAY", "TICKETING_ENABLED", "EXPOSED_TO_ACTIVITIES_WTP_EXPERIMENT", "LINKED_TO_HUB", "AUTO_MODERATION", "BOOSTING_TIERS_EXPERIMENT_SMALL_GUILD", "BOOSTING_TIERS_EXPERIMENT_MEDIUM_GUILD", "HAD_EARLY_ACTIVITIES_ACCESS", "TICKETED_EVENTS_ENABLED", "BOT_DEVELOPER_EARLY_ACCESS", "GUILD_HOME_TEST"]);
 
-                for (let c in e.c) {
-                    m.push(e.c[c]);
-                };
-            }]), m).find(m => m?.exports?.Z?.getGuildCount).exports.Z.getGuild(guildId).features = new Set(["ROLE_SUBSCRIPTIONS_AVAILABLE_FOR_PURCHASE", "WELCOME_SCREEN_ENABLED", "NEWS", "COMMUNITY", "MEMBER_VERIFICATION_GATE_ENABLED", "PRIVATE_THREADS", "PREVIEW_ENABLED", "SEVEN_DAY_THREAD_ARCHIVE", "THREADS_ENABLED", "THREADS_ENABLED_TESTING", "THREE_DAY_THREAD_ARCHIVE", "VANITY_URL", "PARTNERED", "MONETIZATION_ENABLED", "COMMERCE", "ANIMATED_BANNER", "BANNER", "ROLE_ICONS", "ANIMATED_ICON", "MEMBER_PROFILES", "VIP_REGIONS", "ENABLED_DISCOVERABLE_BEFORE", "MORE_EMOJI", "VERIFIED", "FEATURABLE", "HAS_DIRECTORY_ENTRY", "INVITE_SPLASH", "DISCOVERABLE", "NEW_THREAD_PERMISSIONS", "CHANNEL_BANNER", "TEXT_IN_VOICE_ENABLED", "ROLE_SUBSCRIPTIONS_ENABLED_FOR_PURCHASE", "ROLE_SUBSCRIPTIONS_ENABLED", "PREMIUM_TIER_3_OVERRIDE", "MORE_STICKERS", "RELAY_ENABLED", "INTERNAL_EMPLOYEE_ONLY", "FORCE_RELAY", "TICKETING_ENABLED", "EXPOSED_TO_ACTIVITIES_WTP_EXPERIMENT", "LINKED_TO_HUB", "AUTO_MODERATION", "BOOSTING_TIERS_EXPERIMENT_SMALL_GUILD", "BOOSTING_TIERS_EXPERIMENT_MEDIUM_GUILD", "HAD_EARLY_ACTIVITIES_ACCESS", "TICKETED_EVENTS_ENABLED", "BOT_DEVELOPER_EARLY_ACCESS", "GUILD_HOME_TEST"]);
-
-            BdApi.UI.showToast(`All features has added to server with ${guildId} id!`, {
+            BdApi.UI.showToast(`Successfully added all the feature to the server with ID "${guildId}"`, {
                 type: "success"
             })
-            console.log(`All features has added to server with ${guildId} id!`);
+            console.log(`Successfully added all the feature to the server with ID "${guildId}"`);
         };
 
         /**
@@ -207,10 +202,10 @@ module.exports = meta => ({
             try {
                 findByProps;
             } catch (error) {
-                BdApi.UI.showToast('Use findByProps snippet before!', {
+                BdApi.UI.showToast('You must use the "findByProps" snippet before this one. Check the console for more info.', {
                     type: "warn"
                 })
-                console.error('Use findByProps snippet before!');
+                console.error('You must use the "findByProps" snippet before this one.\nget it from https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800');
                 return;
             };
 
@@ -218,10 +213,10 @@ module.exports = meta => ({
 
             channel.flags_ = 1 << 10;
 
-            BdApi.UI.showToast(`${channel.name} channel has turned into a Media Channel!`, {
+            BdApi.UI.showToast(`Successfully converted ${channel.name} to a media channel`, {
                 type: "success"
             })
-            console.log(`${channel.name} channel has turned into a Media Channel!`);
+            console.log(`Successfully converted ${channel.name} to a media channel`);
         };
 
         /**
@@ -244,6 +239,7 @@ module.exports = meta => ({
             BdApi.UI.showToast('Successfully sent the notification!', {
                 type: "success"
             })
+            console.log('Successfully sent the notification!')
         };
 
         /**
@@ -255,7 +251,10 @@ module.exports = meta => ({
             try {
                 getActionHandler;
             } catch (error) {
-                return console.error('Use getActionHandler snippet before: https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1099723941314048020');
+                BdApi.UI.showToast('You must use the "getActionHandler" snippet before this one. Check the console for more info.', {
+                    type: "warn"
+                })
+                return console.error('You must use the "getActionHandler" snippet before this one.\nget it from https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1099723941314048020');
             };
 
             getActionHandler('n', 'RECEIVE_CHANNEL_SUMMARIES')({
@@ -263,10 +262,10 @@ module.exports = meta => ({
                 summaries: topics
             });
 
-            BdApi.UI.showToast('Topics are added! Be fast to see them before they gone!', {
+            BdApi.UI.showToast('Successfully added the topics', {
                 type: "success"
             })
-            console.log('Topics are added! Be fast to see them before they gone!');
+            console.log('Successfully added the topics');
         };
 
         /**
@@ -276,18 +275,9 @@ module.exports = meta => ({
          */
         window.addDM = async function (id) {
             try {
-                await (webpackChunkdiscord_app.push([
-                    [""],
-                    {},
-                    (e) => {
-                        m = [];
-                        for (let o in e.c) m.push(e.c[o]);
-                    },
-                ]), m)
-                    .find((e) => e?.exports?.Z?.getAPIBaseURL)
-                    .exports.Z.post({ url: "/users/@me/channels", body: { recipients: [id] } });
+                findByProps('getAPIBaseURL').post({ url: "/users/@me/channels", body: { recipients: [id] } });
                 
-                BdApi.UI.showToast(`Successfully opened a DM with the user ${id}`, {
+                BdApi.UI.showToast(`Successfully opened a DM with the user with ID "${id}"`, {
                     type: "success"
                 })
 
@@ -297,21 +287,12 @@ module.exports = meta => ({
                     cancelText: "No"
                 })
                 
-                console.log(
-                    "%c✅ Success\n%cUser has been added to your DMs successfully",
-                    "font-size: 50px",
-                    "color: green; font-size: 18px"
-                );
+                console.log(`Successfully opened a DM with the user with ID "${id}"`);
             } catch (e) {
                 BdApi.UI.showToast('Something went wrong... Check console for more details', {
                     type: "error"
                 })
-                console.log(
-                    "%c❌ Error!\n%cUser id may be invalid, or script may be outdated. More information:",
-                    "font-size: 50px",
-                    "color: red; font-size: 18px",
-                    e
-                );
+                console.log('Error:', e);
             }
         };
 
@@ -342,6 +323,7 @@ module.exports = meta => ({
             BdApi.UI.showToast('Successfully enabled the experiments!', {
                 type: "success"
             })
+            console.log('Successfully enabled the experiments!')
         };
 
         /**
@@ -350,18 +332,12 @@ module.exports = meta => ({
          * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1097935744523313162
          */
         window.addFeatures = function (guildId, features) {
-            (webpackChunkdiscord_app.push([[Symbol()], {}, e => {
-                m = [];
+            findByProps('getGuildCount').getGuild(guildId).features = new Set(features);
 
-                for (let c in e.c) {
-                    m.push(e.c[c]);
-                };
-            }]), m).find(m => m?.exports?.Z?.getGuildCount).exports.Z.getGuild(guildId).features = new Set(features);
-
-            BdApi.UI.showToast(`The selected features have been added to the server with ID "${guildId}"`, {
+            BdApi.UI.showToast(`Successfully added the selected features to the server with ID "${guildId}"`, {
                 type: "success"
             })
-            console.log(`%c[Featured]%c Selected features have been added to the server with ID %c${guildId}!`, 'color: #50C878', '', 'color: #FFD34F');
+            console.log(`Successfully added the selected features to the server with ID "${guildId}"`);
         };
 
         /**
@@ -385,10 +361,10 @@ module.exports = meta => ({
             try {
                 findByProps;
             } catch (error) {
-                BdApi.UI.showToast('Use findByProps snippet before: https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800', {
+                BdApi.UI.showToast('You must use the "findByProps" snippet before this one. Check the console for more info.', {
                     type: "warn"
                 })
-                return console.error('Use findByProps snippet before: https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800');
+                return console.error('You must use the "findByProps" snippet before this one.\nget it from https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800');
             };
 
             invites = await findByProps('createInvite').getAllFriendInvites()
@@ -396,10 +372,22 @@ module.exports = meta => ({
             invitesArr = []
 
             for (const invite of invites) {
-                invitesArr.push(`\`${JSON.stringify(invite)}\``)
+                invitesArr.push(`# Invite info:`)
+                invitesArr.push(`Code: \`${invite.code}\``)
+                invitesArr.push(`Max age: ${invite.max_age}`)
+                invitesArr.push(`Max uses: ${invite.max_uses}`)
+                invitesArr.push(`Creation date: ${new Date(invite.created_at).toGMTString()}`)
+                invitesArr.push(`Expiration date: ${new Date(invite.expires_at).toGMTString()}`)
+                
+                invitesArr.push(`# Inviter info:`)
+                invitesArr.push(`Username: ${invite.inviter.username}`)
+                invitesArr.push(`Discriminator: ${invite.inviter.discriminator}`)
+                invitesArr.push(`ID: \`${invite.inviter.id}\``)
+                invitesArr.push('\u200b')
+                invitesArr.push('\u200b')
             }
 
-            BdApi.UI.alert('These are all the objects of your friend invites', invitesArr.length > 0 ? invitesArr : 'You have no friend invites')
+            BdApi.UI.alert('These are all the info of your friend invites', invites.length > 0 ? invitesArr : 'You have no friend invites')
             return invites;
         };
 
@@ -409,31 +397,48 @@ module.exports = meta => ({
          * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1102558838848225290
          */
         window.getFriendInvite = async function (code) {
+            if (!code) {
+                BdApi.UI.showToast('You must give insert an invite code to use this function', {
+                    type: "error"
+                })
+                return console.error('You must give insert an invite code to use this function');
+            }
             try {
                 findByProps;
             } catch (error) {
-                BdApi.UI.showToast('Use findByProps snippet before: https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800', {
+                BdApi.UI.showToast('You must use the "findByProps" snippet before this one. Check the console for more info.', {
                     type: "warn"
                 })
-                return console.error('Use findByProps snippet before: https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800');
+                return console.error('You must use the "findByProps" snippet before this one.\nget it from https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800');
             };
 
             invites = await findByProps('createInvite').getAllFriendInvites();
             result = invites.find(invite => invite.code === code);
 
             if (result) {
-                BdApi.UI.alert(`This the object of the invite with code "${code}"`, `\`${JSON.stringify(result)}\``)
+                BdApi.UI.alert(`This the info of the selected invite code`, [
+                    `# Invite info:`,
+                    `Code: ${result.code}`,
+                    `Max age: ${result.max_age}`,
+                    `Max uses: ${result.max_uses}`,
+                    `Creation date: ${new Date(result.created_at).toGMTString()}`,
+                    `Expiration date: ${new Date(result.expires_at).toGMTString()}`,
+                    `# Inviter info:`,
+                    `Username: ${result.inviter.username}`,
+                    `Discriminator: ${result.inviter.discriminator}`,
+                    `ID: ${result.inviter.id}`
+                ])
                 return result;
             } else {
-                BdApi.UI.showToast(`Any friend invites with ${code} could not found!`, {
+                BdApi.UI.showToast(`No friend invites found with the code "${code}"`, {
                     type: "warn"
                 })
-                return console.error(`Any friend invites with ${code} could not found!`);
+                return console.error(`No friend invites found with the code "${code}"`);
             }
         };
 
         /**
-         * @method getFriendInvite
+         * @method createFriendInvite
          * @author ✨Tolgchu✨#1452
          * @credits !-𝐅𝐨𝐱, 𝐉𝐚𝐦𝐞𝐬𝐋𝐘𝐓𝐕𝟐 ✤#6942
          * @source https://discord.gg/RmK8aGkSuZ - https://discord.com/channels/1089540433010491392/1102558838848225290
@@ -442,12 +447,26 @@ module.exports = meta => ({
             try {
                 findByProps;
             } catch (error) {
-                return console.error('Use findByProps snippet before: https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800');
+                BdApi.UI.showToast('You must use the "findByProps" snippet before this one. Check the console for more info.', {
+                    type: "warn"
+                })
+                return console.error('You must use the "findByProps" snippet before this one.\nget it from https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800');
             };
 
             invite = await findByProps('createInvite').createFriendInvite();
 
-            BdApi.UI.alert('Here is the object of the invite you just made', JSON.stringify(invite))
+            BdApi.UI.alert('Here is the info of the invite you just made', [
+                `# Invite info:`,
+                `Code: ${invite.code}`,
+                `Max age: ${invite.max_age}`,
+                `Max uses: ${invite.max_uses}`,
+                `Creation date: ${new Date(invite.created_at).toGMTString()}`,
+                `Expiration date: ${new Date(invite.expires_at).toGMTString()}`,
+                `# Inviter info:`,
+                `Username: ${invite.inviter.username}`,
+                `Discriminator: ${invite.inviter.discriminator}`,
+                `ID: ${invite.inviter.id}`
+            ])
 
             return invite;
         };
@@ -461,15 +480,18 @@ module.exports = meta => ({
             try {
                 findByProps;
             } catch (error) {
-                return console.error('Use findByProps snippet before: https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800');
+                BdApi.UI.showToast('You must use the "findByProps" snippet before this one. Check the console for more info.', {
+                    type: "warn"
+                })
+                return console.error('You must use the "findByProps" snippet before this one.\nget it from https://discord.gg/vK5sZYdaB6 - https://discord.com/channels/1089540433010491392/1090280191416352800');
             };
 
             await findByProps('createInvite').revokeFriendInvites();
 
-            BdApi.UI.showToast('Your all friend invites are successfully revoked!', {
+            BdApi.UI.showToast('Successfully revoked all you friend invites', {
                 type: "success"
             })
-            console.log('Your all friend invites are successfully revoked!');
+            console.log('Successfully revoked all you friend invites');
         };
     },
     stop() { }
