@@ -12,6 +12,7 @@ module.exports = meta => ({
     start() {
         /**
          * @method findByProps
+         * @author Stef#6705
          * @credits BetterDiscord built-in
          */
         window.findByProps = function (...props) {
