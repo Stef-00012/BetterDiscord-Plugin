@@ -3,7 +3,7 @@
  * @author Stef#6705
  * @authorId 694986201739952229
  * @description Enables functions such as findByProps
- * @version 1.3.0
+ * @version 1.4.0
  * @website https://github.com/Stef-00012/BetterDiscord-Plugin/tree/main#enablecustomfunctionspluginjs
  * @source https://github.com/Stef-00012/BetterDiscord-Plugin/blob/main/EnableCustomFunctions.plugin.js
  */
@@ -485,6 +485,28 @@ module.exports = meta => ({
             })
             console.log('Successfully revoked all you friend invites');
         };
+
+        window.setReminder = function (channelId, messageId, duration) {
+            message = findByProps('getMessage').getMessage(channelId, messageId);
+            channel = findByProps('getChannel').getChannel(channelId);
+
+            findByProps('_dispatch').dispatch({
+                type: 'SAVED_MESSAGES_UPDATE',
+                messages: [
+                    {
+                        messageId,
+                        channelId,
+                        complete: false,
+                        savedAt: new Date,
+                        dueAt: new Date(new Date().getTime() + duration),
+                        authorSummary: message.author.username,
+                        authorId: message.author.id,
+                        channelSummary: `#${channel.name}`,
+                        messageSummary: message.content
+                    }
+                ]
+            });
+        }
     },
     stop() {
         const functions = [
@@ -510,7 +532,8 @@ module.exports = meta => ({
             'getAllFriendInvites',
             'getFriendInvite',
             'createFriendInvite',
-            'revokeAllFriendInvites'
+            'revokeAllFriendInvites',
+            'setReminder'
         ]
 
         for (const fn of functions) {
